@@ -65854,18 +65854,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _users_MainComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./users/MainComponent */ "./resources/js/components/users/MainComponent.js");
+/* harmony import */ var _users_SurveyForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./users/SurveyForm */ "./resources/js/components/users/SurveyForm.js");
+/* harmony import */ var _sass_app_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../sass/app.scss */ "./resources/sass/app.scss");
+/* harmony import */ var _sass_app_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_sass_app_scss__WEBPACK_IMPORTED_MODULE_3__);
 
 
 
-react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_users_MainComponent__WEBPACK_IMPORTED_MODULE_2__["default"], null), document.getElementById('root'));
+
+react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_users_SurveyForm__WEBPACK_IMPORTED_MODULE_2__["default"], null), document.getElementById('root'));
 
 /***/ }),
 
-/***/ "./resources/js/components/users/ContactForm.js":
-/*!******************************************************!*\
-  !*** ./resources/js/components/users/ContactForm.js ***!
-  \******************************************************/
+/***/ "./resources/js/components/users/Question.js":
+/*!***************************************************!*\
+  !*** ./resources/js/components/users/Question.js ***!
+  \***************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -65873,12 +65876,115 @@ react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEB
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+/* harmony import */ var _QuestionTypeB__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./QuestionTypeB */ "./resources/js/components/users/QuestionTypeB.js");
+/* harmony import */ var _QuestionTypeAC__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./QuestionTypeAC */ "./resources/js/components/users/QuestionTypeAC.js");
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+
+var Question = function Question(props) {
+  if (props.type === 'B') {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_QuestionTypeB__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      display: props.display,
+      number: props.number,
+      label: props.content.label
+    });
+  } else {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_QuestionTypeAC__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      display: props.display,
+      number: props.number,
+      options: props.content.choices,
+      label: props.content.label
+    });
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Question);
+
+/***/ }),
+
+/***/ "./resources/js/components/users/QuestionTypeAC.js":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/users/QuestionTypeAC.js ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var QuestionTypeAC = function QuestionTypeAC(props) {
+  var listOptions = props.options.map(function (optionValue, index) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      key: index,
+      className: "form-check"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      className: "form-check-input",
+      type: "radio",
+      name: 'question' + props.number,
+      id: 'question' + props.number + index,
+      value: optionValue
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      className: "form-check-label",
+      htmlFor: 'question' + props.number + index
+    }, optionValue));
+  });
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: 'text-left form-group ' + props.display
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, props.number, " /20 Questions"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, props.label), listOptions);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (QuestionTypeAC);
+
+/***/ }),
+
+/***/ "./resources/js/components/users/QuestionTypeB.js":
+/*!********************************************************!*\
+  !*** ./resources/js/components/users/QuestionTypeB.js ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var QuestionTypeB = function QuestionTypeB(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: 'text-center form-group ' + props.display
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, props.number, " /20 Questions"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, props.label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "form-group"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    htmlFor: props.number
+  }, props.label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "text",
+    className: "form-control",
+    name: props.number,
+    id: props.number
+  })));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (QuestionTypeB);
+
+/***/ }),
+
+/***/ "./resources/js/components/users/SurveyForm.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/users/SurveyForm.js ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Question__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Question */ "./resources/js/components/users/Question.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -65893,98 +65999,117 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-var ContactForm = function ContactForm() {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
-    firstName: '',
-    lastName: '',
-    email: '',
-    comment: ''
-  }),
+
+var SurveyFrom = function SurveyFrom() {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([{
+    label: 'votre email',
+    type: 'B'
+  }, {
+    label: 'nombre d\'enfants',
+    choices: [1, 2, 3, 4, 5],
+    type: 'C'
+  }, {
+    label: 'fruits',
+    choices: ['banane', 'pomme de ciel', 'orange'],
+    type: 'A'
+  }]),
       _useState2 = _slicedToArray(_useState, 2),
       data = _useState2[0],
       setData = _useState2[1];
 
-  var onUpdate = function onUpdate(event) {
-    var newData = _objectSpread({}, data);
+  var totalQuestion = data.length;
 
-    newData[event.target.name] = event.target.value;
-    setData(newData);
-  };
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(0),
+      _useState4 = _slicedToArray(_useState3, 2),
+      currentQuestion = _useState4[0],
+      setCurrentQuestion = _useState4[1];
+
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('d-none'),
+      _useState6 = _slicedToArray(_useState5, 2),
+      end = _useState6[0],
+      setEnd = _useState6[1];
+
+  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('d-none'),
+      _useState8 = _slicedToArray(_useState7, 2),
+      prev = _useState8[0],
+      setPrev = _useState8[1];
+
+  var _useState9 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
+      _useState10 = _slicedToArray(_useState9, 2),
+      next = _useState10[0],
+      setNext = _useState10[1];
 
   var onSendData = function onSendData(event) {
     event.preventDefault();
     console.log(data);
   };
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+  var onNextQuestion = function onNextQuestion() {
+    setCurrentQuestion(currentQuestion + 1);
+
+    if (currentQuestion >= totalQuestion - 2) {
+      setCurrentQuestion(totalQuestion - 1);
+      setNext('d-none');
+      setEnd('');
+    }
+
+    setPrev('');
+  };
+
+  var onPrevQuestion = function onPrevQuestion() {
+    setCurrentQuestion(currentQuestion - 1);
+    console.log(currentQuestion);
+
+    if (currentQuestion <= 1) {
+      setCurrentQuestion(0);
+      setPrev('d-none');
+    }
+
+    setEnd('d-none');
+    setNext('');
+  };
+
+  var listQuestions = data.map(function (question, key) {
+    return key === currentQuestion ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Question__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      key: key,
+      number: key + 1,
+      content: question,
+      type: question.type,
+      display: "card"
+    }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Question__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      key: key,
+      number: key + 1,
+      content: question,
+      type: question.type,
+      display: "d-none"
+    });
+  });
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "text-center card"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
     action: "",
     onSubmit: onSendData
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "title"
-  }, "Contact Us"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "name-wrapper"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "text",
-    name: "firstName",
-    placeholder: "First Name",
-    autoFocus: true,
-    required: true,
-    value: data.firstName,
-    onChange: onUpdate
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "text",
-    name: "lastName",
-    placeholder: "Last Name",
-    value: data.lastName,
-    onChange: onUpdate,
-    required: true
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "email",
-    name: "email",
-    placeholder: "Email",
-    required: true,
-    onChange: onUpdate,
-    value: data.email
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
-    name: "comment",
-    form: "cform",
-    placeholder: "Message",
-    value: data.comment,
-    required: true,
-    onChange: onUpdate
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  }, listQuestions, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: 'btn btn-primary ' + prev,
+    type: "button",
+    onClick: function onClick() {
+      return onPrevQuestion();
+    }
+  }, " prev"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: 'btn btn-primary ' + next,
+    type: "button",
+    onClick: function onClick() {
+      return onNextQuestion();
+    }
+  }, " next"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: 'btn btn-primary ' + end,
     id: "submit",
     name: "submit",
     type: "submit"
-  }));
+  }, "Valider"))));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (ContactForm);
-
-/***/ }),
-
-/***/ "./resources/js/components/users/MainComponent.js":
-/*!********************************************************!*\
-  !*** ./resources/js/components/users/MainComponent.js ***!
-  \********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _ContactForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ContactForm */ "./resources/js/components/users/ContactForm.js");
-
-
-
-var App = function App() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "wrapper"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ContactForm__WEBPACK_IMPORTED_MODULE_1__["default"], null));
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (App);
+/* harmony default export */ __webpack_exports__["default"] = (SurveyFrom);
 
 /***/ }),
 

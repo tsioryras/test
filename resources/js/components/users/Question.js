@@ -1,0 +1,14 @@
+import React from 'react';
+import QuestionTypeB from "./QuestionTypeB";
+import QuestionTypeAC from "./QuestionTypeAC";
+
+const Question = (props) => {
+    if (props.type === 'B') {
+        return <QuestionTypeB display={props.display} number={props.number} label={props.content.label}/>;
+    } else {
+        return <QuestionTypeAC display={props.display} number={props.number} options={props.content.choices}
+                               label={props.content.label}/>;
+    }
+};
+
+export default Question;
