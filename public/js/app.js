@@ -65874,7 +65874,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var Dashboard = function Dashboard() {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('Accueil'),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('home'),
       _useState2 = _slicedToArray(_useState, 2),
       currentAdminPage = _useState2[0],
       setCurrentAdminPage = _useState2[1];
@@ -65918,17 +65918,20 @@ var MenuAdmin = function MenuAdmin(props) {
     "data-widget": "treeview",
     role: "menu"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MenuItem__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    page: "Accueil",
+    page: "home",
     icon: "home",
-    onChangePage: props.onChangePage
+    onChangePage: props.onChangePage,
+    item: "Accueil"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MenuItem__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    page: "Questions",
+    page: "question",
     icon: "list",
-    onChangePage: props.onChangePage
+    onChangePage: props.onChangePage,
+    item: "Questions"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MenuItem__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    page: "R\xE9ponses",
+    page: "answer",
     icon: "pen",
-    onChangePage: props.onChangePage
+    onChangePage: props.onChangePage,
+    item: "R\xE9ponses"
   })));
 };
 
@@ -65960,7 +65963,7 @@ var MenuItem = function MenuItem(props) {
     href: "#"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: 'fas fa-fw fa-' + props.icon
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, props.page)));
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, props.item)));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (MenuItem);
@@ -65994,6 +65997,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+var url;
 
 var PageContent = function PageContent(props) {
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
@@ -66001,27 +66005,22 @@ var PageContent = function PageContent(props) {
       content = _useState2[0],
       setContent = _useState2[1];
 
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
-      _useState4 = _slicedToArray(_useState3, 2),
-      url = _useState4[0],
-      setUrl = _useState4[1];
-
   switch (props.page) {
-    case 'Questions':
-      setUrl('http://localhost:3000/administration/users');
+    case 'question':
+      url = 'http://localhost:3000/administration/users';
       break;
 
-    case 'Réponses':
-      setUrl('shttp://localhost:3000/administration/users');
+    case 'answer':
+      url = 'http://localhost:3000/administration/users';
       break;
 
     default:
-      setUrl('http://localhost:3000/administration/users');
+      url = 'http://localhost:3000/administration/users';
       break;
   }
 
   var dataGet = axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(url).then(function (response) {
-    setContent(response.data[0].name);
+    setContent( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, response.data[0].name));
   })["catch"](function (error) {
     console.log(error);
   });
@@ -66055,7 +66054,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var rootElement = document.getElementById('root');
-var adminElement = document.getElementById('body_content');
+var adminElement = document.getElementById('page-content');
 
 if (rootElement) {
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_users_SurveyForm__WEBPACK_IMPORTED_MODULE_2__["default"], null), rootElement);

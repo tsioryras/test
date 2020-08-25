@@ -5,7 +5,7 @@ const MenuItem = (props) => {
         <li className="nav-item" onClick={() => props.onChangePage(props.page)}>
             <a className="nav-link" href="#">
                 <i className={'fas fa-fw fa-' + props.icon}></i>
-                <p>{props.page}</p>
+                <p>{props.item}</p>
             </a>
         </li>
     );
