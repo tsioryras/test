@@ -1,24 +1,25 @@
 import React, {useState} from 'react';
 import axios from "axios";
 
+let url;
 const PageContent = (props) => {
     const [content, setContent] = useState('');
-    const [url, setUrl] = useState('');
+
     switch (props.page) {
-        case 'Questions':
-            setUrl('http://localhost:3000/administration/users');
+        case 'question':
+            url = 'http://localhost:3000/administration/users';
             break;
-        case 'Réponses':
-            setUrl('shttp://localhost:3000/administration/users');
+        case 'answer':
+            url = 'http://localhost:3000/administration/users';
             break;
         default:
-            setUrl('http://localhost:3000/administration/users');
+            url = 'http://localhost:3000/administration/users';
             break;
 
     }
 
     const dataGet = axios.get(url).then(function (response) {
-        setContent(response.data[0].name);
+        setContent(<h1>{response.data[0].name}</h1>);
     }).catch(function (error) {
         console.log(error);
     });

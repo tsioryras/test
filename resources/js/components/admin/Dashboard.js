@@ -4,7 +4,7 @@ import PageContent from './PageContent';
 import MenuAdmin from "./MenuAdmin";
 
 const Dashboard = () => {
-    const [currentAdminPage, setCurrentAdminPage] = useState('Accueil');
+    const [currentAdminPage, setCurrentAdminPage] = useState('home');
 
     const onNavigateHandler = (page) => {
         setCurrentAdminPage(page);
