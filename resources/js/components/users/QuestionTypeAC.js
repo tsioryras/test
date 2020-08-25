@@ -15,7 +15,7 @@ const QuestionTypeAC = (props) => {
     });
     return (
         <div className={'text-left form-group ' + props.display}>
-            <h1>{props.number} /20 Questions</h1>
+            <h1>{props.title}</h1>
             <h2>{props.label}</h2>
             {listOptions}
         </div>

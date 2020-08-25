@@ -65887,6 +65887,7 @@ var Question = function Question(props) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_QuestionTypeB__WEBPACK_IMPORTED_MODULE_1__["default"], {
       display: props.display,
       number: props.number,
+      title: props.title,
       label: props.content.label
     });
   } else {
@@ -65894,6 +65895,7 @@ var Question = function Question(props) {
       display: props.display,
       number: props.number,
       options: props.content.choices,
+      title: props.title,
       label: props.content.label
     });
   }
@@ -65934,7 +65936,7 @@ var QuestionTypeAC = function QuestionTypeAC(props) {
   });
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: 'text-left form-group ' + props.display
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, props.number, " /20 Questions"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, props.label), listOptions);
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, props.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, props.label), listOptions);
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (QuestionTypeAC);
@@ -65957,7 +65959,7 @@ __webpack_require__.r(__webpack_exports__);
 var QuestionTypeB = function QuestionTypeB(props) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: 'text-center form-group ' + props.display
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, props.number, " /20 Questions"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, props.label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, props.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, props.label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "form-group"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
     htmlFor: props.number
@@ -66070,18 +66072,15 @@ var SurveyFrom = function SurveyFrom() {
   };
 
   var listQuestions = data.map(function (question, key) {
-    return key === currentQuestion ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Question__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    var display = key === currentQuestion ? 'card' : 'd-none';
+    var title = 'Question ' + (key + 1) + '/20';
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Question__WEBPACK_IMPORTED_MODULE_1__["default"], {
       key: key,
       number: key + 1,
       content: question,
       type: question.type,
-      display: "card"
-    }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Question__WEBPACK_IMPORTED_MODULE_1__["default"], {
-      key: key,
-      number: key + 1,
-      content: question,
-      type: question.type,
-      display: "d-none"
+      display: display,
+      title: title
     });
   });
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

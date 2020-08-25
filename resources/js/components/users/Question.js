@@ -4,10 +4,11 @@ import QuestionTypeAC from "./QuestionTypeAC";
 
 const Question = (props) => {
     if (props.type === 'B') {
-        return <QuestionTypeB display={props.display} number={props.number} label={props.content.label}/>;
+        return <QuestionTypeB display={props.display} number={props.number} title={props.title}
+                              label={props.content.label}/>;
     } else {
         return <QuestionTypeAC display={props.display} number={props.number} options={props.content.choices}
-                               label={props.content.label}/>;
+                               title={props.title} label={props.content.label}/>;
     }
 };
 

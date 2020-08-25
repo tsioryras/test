@@ -50,19 +50,16 @@ const SurveyFrom = () => {
         setNext('');
     };
 
-    const listQuestions = data.map((question, key) => {
-        return key === currentQuestion ?
-            <Question key={key} number={key + 1}
-                      content={question}
-                      type={question.type}
-                      display='card'/> :
-            <Question key={key} number={key + 1}
-                      content={question}
-                      type={question.type}
-                      display='d-none'/>
-
-    });
-
+    const listQuestions = data.map(function (question, key) {
+            const display = key === currentQuestion ? 'card':'d-none';
+            const title = 'Question ' + (key + 1 )+ '/20';
+            return <Question key={key} number={key + 1}
+                             content={question}
+                             type={question.type}
+                             display={display}
+                             title={title}/>
+        }
+    );
     return (
         <div className="text-center card">
             <form action="" onSubmit={onSendData}>
