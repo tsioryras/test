@@ -21,3 +21,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/administration', 'HomeController@index')->name('administration');
+Route::get('/administration/questions', 'HomeController@question')->name('questions');
+Route::get('/administration/answers', 'HomeController@answer')->name('answers');
