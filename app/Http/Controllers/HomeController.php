@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
+use Illuminate\Http\JsonResponse;
+
 class HomeController extends Controller
 {
     /**
@@ -38,5 +41,14 @@ class HomeController extends Controller
     public function question()
     {
         return view('home');
+    }
+
+    /**
+     * @return JsonResponse
+     */
+    public function users()
+    {
+        return new JsonResponse(User::all());
+
     }
 }

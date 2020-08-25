@@ -9,5 +9,5 @@ const MenuItem = (props) => {
             </a>
         </li>
     );
-}
+};
 export default MenuItem;

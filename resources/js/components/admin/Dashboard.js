@@ -6,15 +6,13 @@ import MenuAdmin from "./MenuAdmin";
 const Dashboard = () => {
     const [currentAdminPage, setCurrentAdminPage] = useState('Accueil');
 
-    const onNavigateHandler=(page)=>{
-      setCurrentAdminPage(page);
+    const onNavigateHandler = (page) => {
+        setCurrentAdminPage(page);
     };
 
     ReactDom.render(<MenuAdmin onChangePage={onNavigateHandler}/>, document.querySelector('div.sidebar'));
     return (
-        <div>
-            <PageContent page={currentAdminPage}/>
-        </div>
+        <PageContent page={currentAdminPage}/>
     );
-}
+};
 export default Dashboard;

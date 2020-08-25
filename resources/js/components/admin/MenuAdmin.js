@@ -11,5 +11,5 @@ const MenuAdmin = (props) => {
             </ul>
         </nav>
     );
-}
+};
 export default MenuAdmin;
