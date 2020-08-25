@@ -230,22 +230,7 @@ return [
     |
     */
 
-    'menu' => [
-        [
-            'text' => 'Accueil',
-            'url' => 'administration',
-            'icon' => 'fas fa-fw fa-home',
-        ],
-        [
-            'text' => 'Questionnaires',
-            'url' => '/administration/questions',
-            'icon' => 'fas fa-fw fa-list',
-        ], [
-            'text' => 'Réponses',
-            'url' => '/administration/answers',
-            'icon' => 'fas fa-fw fa-pen',
-        ]
-    ],
+    'menu' => [],
 
     /*
     |--------------------------------------------------------------------------

@@ -4,7 +4,13 @@ import SurveyForm from './users/SurveyForm';
 import Dashboard from './admin/Dashboard';
 import '../../sass/app.scss';
 
-{window.location.href === "https://www.example.com/app.html " ? <App /> : ''}
-{window.location.href === "https://www.example.com/products.html " ? <Products/> : ''}
-ReactDom.render(<SurveyForm/>, document.getElementById('root'));
-ReactDom.render(<Dashboard/>, document.getElementById('body_content'));
+const rootElement = document.getElementById('root');
+const adminElement = document.getElementById('body_content');
+
+if (rootElement) {
+    ReactDom.render(<SurveyForm/>, rootElement);
+}
+
+if (adminElement) {
+    ReactDom.render(<Dashboard/>, adminElement);
+}
