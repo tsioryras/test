@@ -1,6 +1,16 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import SurveyForm from './users/SurveyForm';
+import Dashboard from './admin/Dashboard';
 import '../../sass/app.scss';
 
-ReactDom.render(<SurveyForm/>, document.getElementById('root'));
+const rootElement = document.getElementById('root');
+const adminElement = document.getElementById('body_content');
+
+if (rootElement) {
+    ReactDom.render(<SurveyForm/>, rootElement);
+}
+
+if (adminElement) {
+    ReactDom.render(<Dashboard/>, adminElement);
+}
