@@ -66130,8 +66130,8 @@ var SurveyFrom = function SurveyFrom() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\etudes\cours_univ\ecole_multimedia\2019-2020\cours\projet_final\bigscreen\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\etudes\cours_univ\ecole_multimedia\2019-2020\cours\projet_final\bigscreen\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\etudes\cours_univ\ecole_multimedia\2019-2020\cours\projet_final\BigScreen\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\etudes\cours_univ\ecole_multimedia\2019-2020\cours\projet_final\BigScreen\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
